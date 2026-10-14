@@ -2,7 +2,7 @@
 
 ## Description:
 
-A simple endless game with many diverse options! Utilizing AI as a guide/tutor, this simple text-based game became a repeatable and wacky game with many twists and turn to never leave you with the same outcome!
+A simple endless game with many diverse options! Utilizing AI as a guide/tutor, this simple text-based game became a repeatable and wacky game with many twists and turns to never leave you with the same outcome!
 
 
 ## Features & Note:
