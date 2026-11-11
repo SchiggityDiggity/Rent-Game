@@ -5,9 +5,9 @@
 A simple endless game with many diverse options! Utilizing AI as a guide/tutor, this simple text-based game became a repeatable and wacky game with many twists and turns to never leave you with the same outcome!
 
 
-## Features & Note:
+## Features & Notes(WIP DO LATER ONCE NEXT VERSION IS DEVELOPED):
 
-### Features
+### Features- Rent-Game V.1
 - 3 Games: Black Jack, Rock Paper Scissors, Dice Rolling
 - Pray choice: 12 different outcomes
 - 6 Choices to make $$$
