@@ -7,9 +7,6 @@ from choices import pray2gods, ask_4_money, twih_stream
 
 # MONEY MAKING VARIABLES
 budget = 50
-word_choice = ['Pablo', 'Guilt', 'September', '1998', 'Shield', 'Change', 'Forsee', 'X-Sample', 'Russia'] #This is used in new feature
-options = r.sample(word_choice, 3)
-correct_choice = r.choice(options)
 pay_rent = True
 goal = 250
 play_game = True
@@ -200,7 +197,10 @@ while play_game:
  ''')
     final_choice = input("You have two choices...\n1) Last words\n2) Ask for extension til next month").lower()
     if final_choice == "1":
-      phrase = input(f"Any final words? {options}")
+      word_choice = ['Pablo', 'Guilt', 'September', '1998', 'Shield', 'Change', 'Forsee', 'X-Sample', 'Russia'] #This is used in new feature
+      options = r.sample(word_choice, 3)
+      correct_choice = r.choice(options)
+      phrase = input(f"Any final words? {options}").lower()
       if phrase == correct_choice.lower():
         print("The landlord's eyes widen, he runs away in what seems to be fear...")
         print("You manage to avoid paying rent this month...")
@@ -212,6 +212,7 @@ while play_game:
       pay_rent = odds()
     else:
       print("Not a valid choice :P")
+      pay_rent = True
     if pay_rent == True:
       if budget >= goal:
         print(f'You succeeded in paying your rent!')
