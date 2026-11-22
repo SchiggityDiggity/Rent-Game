@@ -2,14 +2,14 @@
 import random as r
 import time as t
 from games import calculate_total, black_jack, dice_game, rps
-from play_again import again
+from play_again import again, odds
 from choices import pray2gods, ask_4_money, twih_stream
 
 # MONEY MAKING VARIABLES
 budget = 50
-#word_choice = ['Pablo', 'Guilt', 'September', '1998', 'Shield', 'Change'] This is used to new  feature
-#options = r.sample(word_choice, 3)
-#correct_choice = r.choice(options)
+word_choice = ['Pablo', 'Guilt', 'September', '1998', 'Shield', 'Change', 'Forsee', 'X-Sample', 'Russia'] #This is used in new feature
+options = r.sample(word_choice, 3)
+correct_choice = r.choice(options)
 pay_rent = True
 goal = 250
 play_game = True
@@ -198,29 +198,39 @@ while play_game:
           RENT IS ${goal}!
 =====================================
  ''')
-    #phrase = input(f"Any final words? {options}")
-    #if phrase == correct_choice:
-      #print("The landlord's eyes widen, he runs in away in what seems to be fear...")
-      #print("You manage to avoid paying rent this month...")
-      #pay_rent = False
-    #else:
-      #print("The landlord looks at you with confusion, wondering what you meant by that.")
-      #pay_rent = True
-    if budget >= goal:
-      print(f'You succeeded in paying your rent!')
-      rounds_won += 1
-      budget -= goal
-      goal = int(goal * 1.5)
-      print(f'Your new rent is {goal}, your budget is {budget}')
-    else:
-      print(f'You failed to pay your rent!\nGame Over, {name}!')
-      print(f'You survived {rounds_won} rounds!')
-      play_again = again()
-      if play_again == True:
-        play_game = True
-        budget = 50
-        goal = 250
-        energy_drink = 0
-        rounds_won = 0
+    final_choice = input("You have two choices...\n1) Last words\n2) Ask for extension til next month").lower()
+    if final_choice == "1":
+      phrase = input(f"Any final words? {options}")
+      if phrase == correct_choice.lower():
+        print("The landlord's eyes widen, he runs away in what seems to be fear...")
+        print("You manage to avoid paying rent this month...")
+        pay_rent = False
       else:
-        play_game = False
+        print("The landlord looks at you with confusion, wondering what you meant by that.")
+        pay_rent = True
+    elif final_choice == "2":
+      pay_rent = odds()
+    else:
+      print("Not a valid choice :P")
+    if pay_rent == True:
+      if budget >= goal:
+        print(f'You succeeded in paying your rent!')
+        rounds_won += 1
+        budget -= goal
+        goal = int(goal * 1.5)
+        print(f'Your new rent is {goal}, your budget is {budget}')
+      else:
+        print(f'You failed to pay your rent!\nGame Over, {name}!')
+        print(f'You survived {rounds_won} rounds!')
+        play_again = again()
+        if play_again == True:
+          play_game = True
+          budget = 50
+          goal = 250
+          energy_drink = 0
+          rounds_won = 0
+        else:
+          play_game = False
+    else:
+      rounds_won += 1
+      print(f"Your rent is still {goal}")
